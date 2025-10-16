@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_libft.h                                         :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: alfeofan <alfeofan@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:01:44 by alfeofan          #+#    #+#             */
-/*   Updated: 2025/10/10 20:04:49 by alfeofan         ###   ####lausanne.ch   */
+/*   Updated: 2025/10/16 04:10:10 by alfeofan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
 # include <stddef.h>
 # include <stdlib.h>
 # include <errno.h> 
+# include <unistd.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

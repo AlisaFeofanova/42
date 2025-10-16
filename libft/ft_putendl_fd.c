@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: alfeofan <alfeofan@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:01:44 by alfeofan          #+#    #+#             */
-/*   Updated: 2025/10/10 20:04:49 by alfeofan         ###   ####lausanne.ch   */
+/*   Updated: 2025/10/16 04:19:04 by alfeofan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
-
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
 }

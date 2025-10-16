@@ -9,7 +9,9 @@
 /*   Updated: 2025/09/29 12:49:38 by alfeofan         ###   ####lausanne.ch   */
 /*                                                                            */
 /* ************************************************************************** */
-int		ft_isdigit(char c)
+#include "libft.h"
+
+int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

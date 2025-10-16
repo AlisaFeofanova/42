@@ -9,11 +9,13 @@
 /*   Updated: 2025/09/29 14:43:40 by alfeofan         ###   ####lausanne.ch   */
 /*                                                                            */
 /* ************************************************************************** */
-int		ft_isprint(char c)
+#include "libft.h"
+
+int	ft_isprint(int c)
 {
 	if (c >= 32 && c < 127)
 		return (1);
-	else 
+	else
 		return (0);
 }
 /*
