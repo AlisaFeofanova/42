@@ -32,11 +32,10 @@ If successful, calloc(), malloc(), realloc(),
 */
 #include "libft.h"
 
-unsigned char	*malloc_check(unsigned char *ptr)
+static unsigned char	*malloc_check(unsigned char *ptr)
 {
 	if (!ptr)
 	{
-		errno = ENOMEM;
 		return (NULL);
 	}
 	return (ptr);
@@ -50,7 +49,7 @@ void	*ft_calloc(size_t count, size_t size)
 
 	if (count == 0 || size == 0)
 	{
-		ptr = malloc(1);
+		ptr = malloc(0);
 		return (malloc_check(ptr));
 	}
 	total_size = count * size;
