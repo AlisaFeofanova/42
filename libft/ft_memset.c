@@ -6,14 +6,9 @@
 /*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:01:44 by alfeofan          #+#    #+#             */
-/*   Updated: 2025/10/10 20:04:49 by alfeofan         ###   ####lausanne.ch   */
+/*   Updated: 2025/10/16 16:08:15 by alfeofan         ###   ####lausanne.ch   */
 /*                                                                            */
 /* ************************************************************************** */
-/*
-Заполняет первые n байт области памяти,
- на которую указывает s, значением (unsigned char)c.
-Возвращает указатель s (удобно для цепочек вызовов).
-*/
 #include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
@@ -30,13 +25,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-/*
-#include <stdio.h>
-
-int main(void)
-{
-    char str[20] = "Alisa Feofanova";
-    ft_memset(str, '*', 5);
-    printf("%s\n", str);  
-    return 0;
-}*/

@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfeofan <alfeofan@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:01:44 by alfeofan          #+#    #+#             */
-/*   Updated: 2025/10/16 03:54:19 by alfeofan         ###   ########.fr       */
+/*   Updated: 2025/10/16 16:16:09 by alfeofan         ###   ####lausanne.ch   */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))

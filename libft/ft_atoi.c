@@ -9,17 +9,6 @@
 /*   Updated: 2025/10/16 14:59:40 by alfeofan         ###   ####lausanne.ch   */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-The atoi() function converts the initial portion 
-of the string pointed to by str to int
-     representation.
-
-
-While the atoi() function uses the current locale, 
-the atoi_l() function may be passed a locale
-     directly. See xlocale(3) for more information.
-*/
 #include "libft.h"
 
 int	ft_atoi(const char *str)
@@ -46,15 +35,3 @@ int	ft_atoi(const char *str)
 	}
 	return (result * sign);
 }
-/*
-#include<stdio.h>
-
-int main ()
-{
-  char str[] = "       --+-+++-2523 4252.456";
-  int num = ft_atoi(str);
-
-  printf ("The value entered is %s. Its integer is %d.\n", str, num);
-  return 0;
-}
-*/
