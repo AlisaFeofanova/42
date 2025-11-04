@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfeofan <alfeofan@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:01:44 by alfeofan          #+#    #+#             */
-/*   Updated: 2025/10/16 15:44:31 by alfeofan         ###   ########.fr       */
+/*   Updated: 2025/10/17 17:58:09 by alfeofan         ###   ####lausanne.ch   */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int	word_count(const char *s, char c)
+static int	word_count(const char *s, char c)
 {
 	int	count;
 	int	in_word;
@@ -33,7 +32,7 @@ int	word_count(const char *s, char c)
 	return (count);
 }
 
-char	*fill_word(const char *str, int start, int end)
+static char	*fill_word(const char *str, int start, int end)
 {
 	char	*word;
 
@@ -44,7 +43,7 @@ char	*fill_word(const char *str, int start, int end)
 	return (word);
 }
 
-void	*ft_free(char **strs, int count)
+static void	*ft_free(char **strs, int count)
 {
 	int	i;
 
@@ -58,7 +57,7 @@ void	*ft_free(char **strs, int count)
 	return (NULL);
 }
 
-int	word_len(char const *str, char c)
+static int	word_len(char const *str, char c)
 {
 	int	len;
 
@@ -75,7 +74,7 @@ char	**ft_split(char const *s, char c)
 	char	**result;
 	int		j;
 
-	if (!s || !c)
+	if (!s)
 		return (NULL);
 	result = malloc((word_count(s, c) + 1) * sizeof(char *));
 	if (!result)
