@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfeofan <alfeofan@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 17:01:44 by alfeofan          #+#    #+#             */
-/*   Updated: 2025/10/16 03:43:11 by alfeofan         ###   ########.fr       */
+/*   Created: 2025/10/15 19:04:44 by alfeofan          #+#    #+#             */
+/*   Updated: 2025/10/17 17:55:58 by alfeofan         ###   ####lausanne.ch   */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int	ft_intlen(long nbr)
+static int	ft_intlen(long nbr)
 {
 	int	count;
 
