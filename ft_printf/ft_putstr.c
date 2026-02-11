@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                         :+:    :+:           */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 18:39:41 by alfeofan          #+#    #+#             */
-/*   Updated: 2025/10/16 14:59:40 by alfeofan         ###   ####lausanne.ch   */
+/*   Created: 2026/02/11 15:21:26 by alfeofan          #+#    #+#             */
+/*   Updated: 2026/02/11 18:44:11 by alfeofan       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_putstr(char *s)
@@ -24,6 +25,7 @@ int	ft_putstr(char *s)
 	write(1, s, len);
 	return (len);
 }
+
 /*
 #include <stdio.h>
 
