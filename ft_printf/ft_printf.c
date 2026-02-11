@@ -20,6 +20,18 @@ va_end(list)	               | завершить работу, очистить 
 /*   Updated: 2025/10/16 14:59:40 by alfeofan         ###   ####lausanne.ch   */
 /*                                                                            */
 /* ************************************************************************** */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                         :+:    :+:           */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/11 17:45:06 by alfeofan          #+#    #+#             */
+/*   Updated: 2026/02/11 18:40:06 by alfeofan       ########   odam.nl        */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	ft_check_flag(char c, va_list args)
@@ -33,9 +45,9 @@ static int	ft_check_flag(char c, va_list args)
 	else if (c == 'u')
 		return (ft_putunbr(va_arg(args, unsigned int)));
 	else if (c == 'x')
-		return (ft_puthex(va_arg(args, unsigned long), 0));
+		return (ft_puthex(va_arg(args, unsigned int), 0));
 	else if (c == 'X')
-		return (ft_puthex(va_arg(args, unsigned long), 1));
+		return (ft_puthex(va_arg(args, unsigned int), 1));
 	else if (c == 'p')
 		return (ft_putptr(va_arg(args, void *)));
 	else if (c == '%')
