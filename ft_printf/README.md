@@ -42,10 +42,12 @@ and returns the total number of characters printed.
 
 It uses variadic arguments through the <stdarg.h> macros:
 
-| `va_list` | type used to store information about variable arguments |
-| `va_start` | initializes the argument list |
-| `va_arg` | retrieves the next argument of a given type |
-| `va_end` | cleans up the argument list |
+|  Macro     | Description |
+|------------|-------------|
+| `va_list`  | type used to store information about variable arguments |
+| `va_start` | initializes the argument list                           |
+| `va_arg`   | retrieves the next argument of a given type             |
+| `va_end`   | cleans up the argument list                             |
 
 ---
 
