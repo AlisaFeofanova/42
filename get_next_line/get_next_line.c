@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                     :+:    :+:           */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alfeofan <alfeofan@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 16:35:47 by alfeofan          #+#    #+#             */
-/*   Updated: 2026/02/11 19:01:09 by alfeofan       ########   odam.nl        */
+/*   Created: 2026/02/27 20:10:27 by alfeofan          #+#    #+#             */
+/*   Updated: 2026/02/27 21:15:53 by alfeofan         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,13 @@ static char	*read_to_stash(int fd, char *stash)
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes < 0)
-		{
-			free(buf);
-			free(stash);
-			return (NULL);
-		}
+			return (free(buf), free(stash), NULL);
 		buf[bytes] = '\0';
 		stash = ft_strjoin(stash, buf);
 		if (!stash)
-		{
-			free(buf);
-			return (NULL);
-		}
+			return (free(buf), NULL);
 	}
-	free(buf);
-	return (stash);
+	return (free(buf), stash);
 }
 
 static char	*extract_line(char *stash)
