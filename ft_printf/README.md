@@ -538,4 +538,9 @@ allowing `ft_printf` to accurately track the total output length.
 - Only standard C libraries allowed by the 42 curriculum are used.
 
 ---
+# Resourses
 
+- Variadic Functions in C - <https://www.geeksforgeeks.org/c/variadic-functions-in-c/>
+- printf documentation - <https://cplusplus.com/reference/cstdio/printf/>
+- Variadic functions - <https://42-cursus.gitbook.io/guide/1-rank-01/ft_printf/variadic-functions>
+- Markdown Basic Syntax - <https://www.markdownguide.org/basic-syntax/>
