@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 18:39:41 by alfeofan          #+#    #+#             */
-/*   Updated: 2025/10/16 14:59:40 by alfeofan         ###   ####lausanne.ch   */
+/*   Created: 2026/02/27 20:10:27 by alfeofan          #+#    #+#             */
+/*   Updated: 2026/02/27 21:15:53 by alfeofan         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "get_next_line.h"
 
 static char	*read_to_stash(int fd, char *stash)
@@ -24,21 +25,13 @@ static char	*read_to_stash(int fd, char *stash)
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes < 0)
-		{
-			free(buf);
-			free(stash);
-			return (NULL);
-		}
+			return (free(buf), free(stash), NULL);
 		buf[bytes] = '\0';
 		stash = ft_strjoin(stash, buf);
 		if (!stash)
-		{
-			free(buf);
-			return (NULL);
-		}
+			return (free(buf), NULL);
 	}
-	free(buf);
-	return (stash);
+	return (free(buf), stash);
 }
 
 static char	*extract_line(char *stash)

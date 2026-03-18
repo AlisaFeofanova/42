@@ -6,14 +6,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   ft_putunbr.c                                        :+:    :+:           */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 18:39:41 by alfeofan          #+#    #+#             */
-/*   Updated: 2025/10/16 14:59:40 by alfeofan         ###   ####lausanne.ch   */
+/*   Created: 2026/02/11 15:21:57 by alfeofan          #+#    #+#             */
+/*   Updated: 2026/02/11 18:45:25 by alfeofan       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_putunbr(unsigned int n)
@@ -26,6 +27,7 @@ int	ft_putunbr(unsigned int n)
 	count += ft_putchar((n % 10) + 48);
 	return (count);
 }
+
 /*
 int main(void)
 {

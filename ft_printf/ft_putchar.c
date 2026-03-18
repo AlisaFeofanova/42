@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                        :+:    :+:           */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 18:39:41 by alfeofan          #+#    #+#             */
-/*   Updated: 2025/10/16 14:59:40 by alfeofan         ###   ####lausanne.ch   */
+/*   Created: 2026/02/11 15:19:55 by alfeofan          #+#    #+#             */
+/*   Updated: 2026/02/11 18:41:32 by alfeofan       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_putchar(int c)
@@ -16,6 +17,7 @@ int	ft_putchar(int c)
 	write(1, &c, 1);
 	return (1);
 }
+
 /*
 int main(void)
 {

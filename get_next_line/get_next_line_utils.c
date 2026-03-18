@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfeofan <alfeofan@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 18:39:41 by alfeofan          #+#    #+#             */
-/*   Updated: 2025/10/16 14:59:40 by alfeofan         ###   ####lausanne.ch   */
+/*   Created: 2026/02/27 20:11:51 by alfeofan          #+#    #+#             */
+/*   Updated: 2026/02/27 20:16:49 by alfeofan         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t	ft_strlen(char *s)
@@ -49,13 +50,9 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	if (!s1 && !s2)
 		return (NULL);
-	res = malloc((s1 ? ft_strlen(s1) : 0)
-			+ (s2 ? ft_strlen(s2) : 0) + 1);
+	res = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!res)
-	{
-		free(s1);
-		return (NULL);
-	}
+		return (free(s1), NULL);
 	i = 0;
 	j = 0;
 	while (s1 && s1[i])
@@ -66,8 +63,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2 && s2[j])
 		res[i++] = s2[j++];
 	res[i] = '\0';
-	free(s1);
-	return (res);
+	return (free(s1), res);
 }
 
 char	*ft_substr(char *s, unsigned int start, size_t len)
