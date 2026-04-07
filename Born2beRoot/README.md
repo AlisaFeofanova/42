@@ -98,9 +98,9 @@ Typical structure:
 
 
 
-
-
-
+```bash
+/media/alfeofan/7325-13F9/Born2beroot/Born2beroot.vdi
+```
 
 
 
