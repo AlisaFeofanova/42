@@ -35,7 +35,7 @@ cpuf=$(grep "phisical id" /proc/cpuinfo | wc -l)
 # grep command looking inside the file for processor
 # wc -l count the lines of the grep output
 #
-cpuv=$(grep "processor" /porc/cpuinfo | wc -l)
+cpuv=$(grep "processor" /proc/cpuinfo | wc -l)
 
 
 #RAM
