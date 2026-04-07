@@ -4,7 +4,7 @@
 # grep      - filter text
 # -v        - exclude lines
 # awk       - process text
-# df        - shows disk usage
+# df        - shows disk usage (disk filesystem)
 # -m        -  display values in megabytes (MB)
 # END       - run at end
 
@@ -56,7 +56,7 @@ ram_percent=$(free --mega | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}')
 #The currently available storage on your server and its utilization rate as a percent-age.
 #
 #
-# df - shows disk usage, -m -  display values in megabytes (MB)
+# df - shows disk usage (disk filesystem), -m -  display values in megabytes (MB)
 # grep /dev/ - filters lines containing /dev/ and selects real disk partitions
 # -v - exclude lines, removes /boot partition from results (Often /boot is small and not included in total disk calculation)
 # END - runs after all lines are processed
