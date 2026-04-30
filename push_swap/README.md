@@ -218,6 +218,8 @@ sa
 ## Resources
 
 ### Documentation
+- https://www.geeksforgeeks.org/c/implement-stack-in-c/
+- https://www.geeksforgeeks.org/dsa/understanding-time-complexity-simple-examples/
 - https://en.cppreference.com/w/c
 - https://stackoverflow.com/
 - https://www.geeksforgeeks.org/
