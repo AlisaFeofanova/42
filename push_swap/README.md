@@ -188,17 +188,6 @@ The program correctly handles:
 
 ---
 
-## Project Structure
-
-```code
-push_swap/
-├── src/
-├── includes/
-├── libft/
-├── Makefile
-```
----
-
 ## Example
 
 Input:
