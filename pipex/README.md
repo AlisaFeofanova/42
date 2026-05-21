@@ -153,6 +153,28 @@ Key functions used:
 ## Resources
 
 ### Documentation
+
+- Piping in Unix or Linux
+  https://www.geeksforgeeks.org/linux-unix/piping-in-unix-or-linux/
+
+- Understand pipex
+  https://42-cursus.gitbook.io/guide/2-rank-02/pipex/understand-pipex
+
+- Pipex the 42 project “Understanding Pipelines in C”
+  https://medium.com/@omimouni33/pipex-the-42-project-understanding-pipelines-in-c-71984b3f2103
+
+- pipex tutorial — 42 project
+  https://csnotes.medium.com/pipex-tutorial-42-project-4469f5dd5901
+
+- Introducing Pipes
+  https://www.rozmichelle.com/pipes-forks-dups/?source=post_page-----71984b3f2103---------------------------------------#pipelines
+
+
+
+
+
+
+
 - Linux manual pages  
   https://man7.org/linux/man-pages/
 
