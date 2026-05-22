@@ -70,34 +70,6 @@ pipex/
 
 ---
 
-## Instructions
-
-### Compilation
-
-Clone repository:
-
-```bash
-git clone <repository_url>
-cd pipex
-```
-
-Compile project:
-
-```bash
-make
-```
-
-Available rules:
-
-```bash
-make        # compile
-make clean  # remove object files
-make fclean # remove object files and executable
-make re     # rebuild project
-```
-
----
-
 ### Execution
 
 Run:
