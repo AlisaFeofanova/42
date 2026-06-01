@@ -1,0 +1,55 @@
+system("leaks pipex");
+
+norminette src/ includes/ libft/
+
+make fclean
+make
+
+echo -e "42 School\nPipex project\nUnix programming is awesome\nLine 4" > infile.txt
+
+
+########### Successful Scripts (Comparison with Bash) ###############
+
+./pipex infile.txt "cat" "wc -l" outfile_pipex.txt
+< infile.txt cat | wc -l > outfile_bash.txt
+diff outfile_pipex.txt outfile_bash.txt && echo "✅ TEST 1.1 PASSED"
+
+./pipex infile.txt "grep 42" "wc -w" outfile_pipex.txt
+< infile.txt grep 42 | wc -w > outfile_bash.txt
+diff outfile_pipex.txt outfile_bash.txt && echo "✅ TEST 1.2 PASSED"
+
+./pipex infile.txt "/bin/cat" "/usr/bin/wc -c" outfile_pipex.txt
+< infile.txt /bin/cat | /usr/bin/wc -c > outfile_bash.txt
+diff outfile_pipex.txt outfile_bash.txt && echo "✅ TEST 1.3 PASSED"
+
+
+######## Error Handling (Checking stderr and return codes) #########
+
+./pipex infile.txt "cat" "wc -l"
+echo "Return Code (Expected 1): $?"
+
+rm -f ghost_file.txt
+./pipex ghost_file.txt "cat" "wc -l" outfile_pipex.txt
+echo "Return Code (Expected 0): $?"
+
+./pipex infile.txt "fake_cmd_42" "wc -l" outfile_pipex.txt
+echo "Return Code (Expected 0): $?"
+
+./pipex infile.txt "cat" "invalid_system_cmd" outfile_pipex.txt
+echo "Return Code (Expected 127): $?"
+
+
+########### Access rights (Chmod) ###################################
+
+touch no_read.txt && chmod 000 no_read.txt
+./pipex no_read.txt "cat" "wc -l" outfile_pipex.txt
+echo "Return Code (Expected 0): $?"
+rm -f no_read.txt
+
+touch no_write.txt && chmod 444 no_write.txt
+./pipex infile.txt "cat" "wc -l" no_write.txt
+rm -f no_write.txt
+## no_write.txt: Permission denied
+
+rm -f infile.txt outfile_pipex.txt outfile_bash.txt
+make fclean

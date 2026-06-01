@@ -1,22 +1,41 @@
-NAME = pipex
+NAME        = pipex
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CC          = cc
+CFLAGS      = -Wall -Wextra -Werror
 
-SRC = pipe.c utils.c
-OBJ = $(SRC:.c=.o)
+INC         = includes/pipex.h
+SRC_DIR     = src/
+LIBFT_DIR   = libft/
+LIBFT       = $(LIBFT_DIR)libft.a
 
-all: $(NAME)
+SRCS_FILES  = pipex.c utils.c check_and_free.c
+SRCS        = $(addprefix $(SRC_DIR), $(SRCS_FILES))
+OBJS        = $(SRCS:.c=.o)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+INCLUDES    = -Iincludes -I$(LIBFT_DIR)
+
+all: $(LIBFT) $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+$(SRC_DIR)%.o: $(SRC_DIR)%.c $(INC)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(LIBFT):
+	@make -C $(LIBFT_DIR)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
+	@make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	@make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+test: all
+	@make -C ./tests
+
+.PHONY: all clean fclean re test
