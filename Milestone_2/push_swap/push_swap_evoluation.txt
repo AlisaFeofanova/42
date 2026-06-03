@@ -1,25 +1,20 @@
 make
 make clean 
 valgrind --leak-check=yes ./push_swap
-./push_swap a s f
-./push_swap 2 1 2 3 4
-./push_swap 1 -2147483648
-./push_swap 1 -21474836483
-./push_swap 42
-./push_swap 2 3
-./push_swap 0 1 2 3
-./push_swap 0 1 2 3 4 5 6 7 8 9
-./push_swap 0 9
+./push_swap a s f  | wc -l
+./push_swap 2 1 2 3 4 | wc -l
+./push_swap 1 -2147483648 | wc -l
+./push_swap 1 -21474836483 | wc -l
+./push_swap 42 | wc -l
+./push_swap 2 3 | wc -l
+./push_swap 0 1 2 3 | wc -l
+./push_swap 0 1 2 3 4 5 6 7 8 9 | wc -l
+./push_swap 0 9 | wc -l
 chmod +x checker_linux
-ARG="2 1 0"; ./push_swap $ARG | ./checker_linux $ARG
-ARG="2"; ./push_swap $ARG | ./checker_linux $ARG 
-ARG="1 5 2 4 3"; ./push_swap $ARG | ./checker_linux $ARG
-ARG="1 2 3 4 5"; ./push_swap $ARG | ./checker_linux $ARG
-ARG=$(shuf -i 1-10000 -n 100 | tr '\n' ' ')
-echo $ARG
-./push_swap $ARG | tee output.txt | ./checker_linux $ARG
-wc -l < output.txt
-ARG=$(shuf -i 1-10000 -n 500 | tr '\n' ' ')
-echo $ARG
-./push_swap $ARG | tee output.txt | ./checker_linux $ARG
-wc -l < output.txt
+ARG="2 1 0"; ./push_swap $ARG | wc -l
+ARG="2"; ./push_swap $ARG | wc -l
+ARG="1 5 2 4 3"; ./push_swap $ARG | wc -l
+ARG="1 2 3 4 5"; ./push_swap $ARG | wc -l
+ARG=$(shuf -i 1-10000 -n 100 | tr '\n' ' '); ./push_swap $ARG | wc -l
+ARG=$(shuf -i 1-10000 -n 500 | tr '\n' ' '); ./push_swap $ARG | wc -l
+
