@@ -1,5 +1,7 @@
 system("leaks pipex");
 
+nm -u ./pipex
+
 norminette src/ includes/ libft/
 
 make fclean
