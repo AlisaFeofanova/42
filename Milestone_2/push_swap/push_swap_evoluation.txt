@@ -1,20 +1,98 @@
+# ==============================================================================
+#                      PUSH_SWAP — COMPILATION & CLEANUP
+# ==============================================================================
+echo "=== COMPILING AND CLEANING ==="
 make
-make clean 
-valgrind --leak-check=yes ./push_swap
-./push_swap a s f  | wc -l
-./push_swap 2 1 2 3 4 | wc -l
-./push_swap 1 -2147483648 | wc -l
-./push_swap 1 -21474836483 | wc -l
-./push_swap 42 | wc -l
-./push_swap 2 3 | wc -l
-./push_swap 0 1 2 3 | wc -l
-./push_swap 0 1 2 3 4 5 6 7 8 9 | wc -l
-./push_swap 0 9 | wc -l
-chmod +x checker_linux
-ARG="2 1 0"; ./push_swap $ARG | wc -l
-ARG="2"; ./push_swap $ARG | wc -l
-ARG="1 5 2 4 3"; ./push_swap $ARG | wc -l
-ARG="1 2 3 4 5"; ./push_swap $ARG | wc -l
-ARG=$(shuf -i 1-10000 -n 100 | tr '\n' ' '); ./push_swap $ARG | wc -l
-ARG=$(shuf -i 1-10000 -n 500 | tr '\n' ' '); ./push_swap $ARG | wc -l
+make clean
 
+# ==============================================================================
+#                  ERROR HANDLING & VALIDATION (Should print Error)
+# ==============================================================================
+echo -e "\n=== ERROR HANDLING TESTS ==="
+
+echo -n "Letters instead of numbers (Expected: Error): "
+./push_swap a s f 2>&1
+
+echo -n "Duplicate numbers (Expected: Error): "
+./push_swap 2 1 2 3 4 2>&1
+
+echo -n "Overflow INT max (Expected: Error): "
+./push_swap 1 2147483648 2>&1
+
+echo -n "Underflow INT min (Expected: Error): "
+./push_swap 1 -21474836483 2>&1
+
+# ==============================================================================
+#                        VALGRIND MEMORY LEAK CHECK
+# ==============================================================================
+echo -e "\n=== MEMORY LEAK CHECK ==="
+echo "Testing Valgrind (Press Ctrl+D if it opens a prompt; look for 0 leaks):"
+valgrind --leak-check=full --show-leak-kinds=all ./push_swap
+
+# ==============================================================================
+#                   SMALL STACK TESTS (0, 1, 2, 3, 4, 10 elements)
+# ==============================================================================
+echo -e "\n=== SMALL STACKS (Expected operations count) ==="
+
+echo -n "1 element (Expected: 0): "
+./push_swap 42 | wc -l
+
+echo -n "2 sorted elements (Expected: 0): "
+./push_swap 2 3 | wc -l
+
+echo -n "2 unsorted elements (Expected: 1): "
+./push_swap 3 2 | wc -l
+
+echo -n "4 sorted elements (Expected: 0): "
+./push_swap 0 1 2 3 | wc -l
+
+echo -n "10 sorted elements (Expected: 0): "
+./push_swap 0 1 2 3 4 5 6 7 8 9 | wc -l
+
+# ==============================================================================
+#                   VARIABLE ARG TESTS (3 and 5 elements)
+# ==============================================================================
+echo -e "\n=== VARIABLE ARG TESTS ==="
+
+ARG="2 1 0"
+echo -n "3 elements worst case (Expected: <= 3): "
+./push_swap $ARG | wc -l
+
+ARG="2"
+echo -n "1 element via ARG (Expected: 0): "
+./push_swap $ARG | wc -l
+
+ARG="1 5 2 4 3"
+echo -n "5 elements random (Expected: <= 12 for full points): "
+./push_swap $ARG | wc -l
+
+ARG="1 2 3 4 5"
+echo -n "5 sorted elements (Expected: 0): "
+./push_swap $ARG | wc -l
+
+# ==============================================================================
+#               ALGORITHMIC TESTS WITH LARGE STACKS (100 and 500)
+# ==============================================================================
+echo -e "\n=== LARGE STACKS (Operation limits for 5/5 points) ==="
+
+ARG=$(shuf -i 1-10000 -n 100 | tr '\n' ' ')
+echo -n "100 random elements (Expected: < 700 for full marks): "
+./push_swap $ARG | wc -l
+
+ARG=$(shuf -i 1-10000 -n 500 | tr '\n' ' ')
+echo -n "500 random elements (Expected: < 5500 for full marks): "
+./push_swap $ARG | wc -l
+
+# ==============================================================================
+#                     OFFICIAL 42 CHECKER VALIDATION
+# ==============================================================================
+echo -e "\n=== CHECKER VALIDATION ==="
+chmod +x checker_linux
+
+ARG=$(shuf -i 1-10000 -n 100 | tr '\n' ' ')
+echo -n "100 elements verification (Expected: OK): "
+./push_swap $ARG | ./checker_linux $ARG
+
+ARG=$(shuf -i 1-10000 -n 500 | tr '\n' ' ')
+echo -n "500 elements verification (Expected: OK): "
+./push_swap $ARG | ./checker_linux $ARG
